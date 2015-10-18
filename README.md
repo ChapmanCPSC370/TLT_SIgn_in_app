@@ -1,7 +1,12 @@
-#TLT SIgn in app
+#TLT SIgn-in app
 
 An iOS (and potentially later Android too) app that allows students to sign into SI sessions with their phone.
 
-For the students: They input their full name and ID number. Then they select which SI they are currently attending.
+##Usage
 
-For the SI's: They input their full name and ID number. If it matches a person in our list of SI's they are confirmed and can add sessions. The sessions they add enter a list in which the students can then search and select from.
+1. Select if you are an SI or a student
+
+2. * If SI, input your name and ID number. If it matches up with a value in the list of current TLT SI's then you can input your SI sessions (can be repeating or single event).
+   * If Student, input your name and ID number. You can then say which SI you are attending. Potentially use geolocation to verify.
+
+3. 
