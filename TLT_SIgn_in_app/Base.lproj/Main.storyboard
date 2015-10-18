@@ -2,12 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ab6-UP-Hjo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Are you...-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TLT_SIgn_in_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Are you..." id="BYZ-38-t0r" customClass="ViewController" customModule="TLT_SIgn_in_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,15 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YiZ-1S-gQX">
-                                <rect key="frame" x="205" y="192" width="110" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YiZ-1S-gQX">
+                                <rect key="frame" x="20" y="74" width="560" height="480"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8Z-jV-tfw">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="240"/>
+                                        <animations/>
+                                        <state key="normal" title="a student?"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19t-hC-FDo">
+                                        <rect key="frame" x="0.0" y="240" width="560" height="240"/>
+                                        <animations/>
+                                        <state key="normal" title="an SI?"/>
+                                    </button>
+                                </subviews>
                                 <animations/>
                             </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YiZ-1S-gQX" secondAttribute="trailing" id="ARb-sP-o93"/>
+                            <constraint firstItem="YiZ-1S-gQX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="ASf-ud-Pyq"/>
+                            <constraint firstItem="YiZ-1S-gQX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="E2F-Qj-R9e"/>
+                            <constraint firstItem="YiZ-1S-gQX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="QQA-E1-Tpa"/>
+                            <constraint firstItem="YiZ-1S-gQX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="UvL-zt-487"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YiZ-1S-gQX" secondAttribute="bottom" constant="10" id="X5E-fw-nqd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QQA-E1-Tpa"/>
+                                <exclude reference="X5E-fw-nqd"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="6xa-Xz-yIv"/>
+                    <navigationItem key="navigationItem" title="Are you..." id="6xa-Xz-yIv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
