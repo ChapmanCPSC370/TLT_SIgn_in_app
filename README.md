@@ -10,6 +10,4 @@ An iOS (and potentially later Android too) app that allows students to sign into
    If Student, input your name and ID number. You can then say which SI you are attending. 
     Potentially use geolocation to verify.
 
-3. The settings will be saved:
-- Account info will be saved
-- Repeating SI sessions for students will be saved
+3. The settings that will be saved: account info (name and ID number), repeating SI sessions, and selection of SI or student. There will be a settings page where you can switch from SI to student or vice versa in case you are both. It will also include your personal settings.
