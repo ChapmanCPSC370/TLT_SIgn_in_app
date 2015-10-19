@@ -11,7 +11,17 @@ Needs Xcode 7.0.1 or higher and Swift 2.0 or higher. To install Xcode you need a
 
 ## Installation
 
-Download
+1. Download Xcode from Mac app store.
+
+2. Fork this repository and download all project files.
+
+3. Open TLT_SIgn_in_app.xcodeproj with Xcode.
+
+4. Go to Source Control >> TLT_SIgn_in_app - Master >> Configure TLT_SIgn_in_app...
+
+5. Navigate to Remotes and click the '+' in the bottom left. Write the name of the project and copy and paste your HTTPS clone url. Click add remote.
+
+6. Whenever you commit changes make sure the checkbox for 'Push to Remote' is checked.
 
 ##Usage
 

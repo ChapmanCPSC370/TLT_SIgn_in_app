@@ -1,11 +1,5 @@
 # Guidance on how to contribute
 
-> All contributions to this project will be released under the CC0 public domain
-> dedication. By submitting a pull request or filing a bug, issue, or
-> feature request, you are agreeing to comply with this waiver of copyright interest.
-> Details can be found in our [TERMS](TERMS.md) and [LICENCE](LICENSE).
-
-
 There are two primary ways to help:
 - Using the issue tracker, and
 - Changing the code-base.
@@ -25,10 +19,11 @@ guidance below.
 ## Changing the code-base
 
 Generally speaking, you should fork this repository, make changes in your
-own fork, and then submit a pull-request. All new code should have associated unit
-tests that validate implemented features and the presence or lack of defects.
-Additionally, the code should follow any stylistic and architectural guidelines
-prescribed by the project. In the absence of such guidelines, mimic the styles
-and patterns in the existing code-base.
+own fork, and then submit a pull-request. 
+
+Guidelines:
+- Whenever you make a new viewcontroller use stackviews for the elements on the page
+- Use whatever button images are provided and match the color scheme. In this case it should be simple white and blue apple default. It is subject to change
+- For Stylistic and Architectural decisions, mimic the styles and patterns in the existing code-base.
 
 
