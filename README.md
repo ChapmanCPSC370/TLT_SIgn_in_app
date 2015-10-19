@@ -7,7 +7,7 @@
 
 ## Dependencies
 
-Needs Xcode 7.0.1 or higher and Swift 2.0 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. No external libraries or frameworks needed at this point in development.
+Needs Xcode 7.0.1 or higher and Swift 2.0 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. No additional libraries or frameworks needed at this point in development.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Needs Xcode 7.0.1 or higher and Swift 2.0 or higher. To install Xcode you need a
 
 4. Go to Source Control >> TLT_SIgn_in_app - Master >> Configure TLT_SIgn_in_app...
 
-5. Navigate to Remotes and click the '+' in the bottom left. Write the name of the project and copy and paste your HTTPS clone url. Click add remote.
+5. Navigate to Remotes and click the '+' in the bottom left. Write the name of the project and copy and paste the HTTPS clone url of your forked repo. Click add remote.
 
 6. Whenever you commit changes make sure the checkbox for 'Push to Remote' is checked.
 
