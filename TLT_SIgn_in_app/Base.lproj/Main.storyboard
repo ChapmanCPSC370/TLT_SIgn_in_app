@@ -120,13 +120,20 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2y-hh-iEk">
+                                <rect key="frame" x="20" y="154" width="49" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Submit"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ag5-Kk-kHT" secondAttribute="trailing" id="127-4s-4b9"/>
+                            <constraint firstItem="Z2y-hh-iEk" firstAttribute="leading" secondItem="ovc-sW-739" secondAttribute="leadingMargin" id="Qkl-Jc-OPv"/>
                             <constraint firstItem="ag5-Kk-kHT" firstAttribute="leading" secondItem="ovc-sW-739" secondAttribute="leadingMargin" id="bWv-78-Lfn"/>
                             <constraint firstItem="ag5-Kk-kHT" firstAttribute="top" secondItem="fWO-q4-72t" secondAttribute="bottom" constant="10" id="enu-nF-swk"/>
+                            <constraint firstItem="Z2y-hh-iEk" firstAttribute="top" secondItem="ag5-Kk-kHT" secondAttribute="bottom" constant="10" id="uTn-c9-btW"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -190,6 +197,11 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLN-U2-7C4">
+                                <rect key="frame" x="20" y="154" width="49" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Submit"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,6 +210,8 @@
                             <constraint firstItem="oa4-Af-MeM" firstAttribute="leading" secondItem="jUe-ad-aro" secondAttribute="leadingMargin" id="9mP-AG-KZR"/>
                             <constraint firstItem="oa4-Af-MeM" firstAttribute="trailing" secondItem="jUe-ad-aro" secondAttribute="trailingMargin" id="Cc6-q4-axE"/>
                             <constraint firstItem="oa4-Af-MeM" firstAttribute="top" secondItem="60o-VW-ubg" secondAttribute="bottom" constant="10" id="NK8-B4-zwg"/>
+                            <constraint firstItem="fLN-U2-7C4" firstAttribute="leading" secondItem="jUe-ad-aro" secondAttribute="leadingMargin" id="OVO-R9-cjO"/>
+                            <constraint firstItem="fLN-U2-7C4" firstAttribute="top" secondItem="oa4-Af-MeM" secondAttribute="bottom" constant="10" id="TBr-v3-7kx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
