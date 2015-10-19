@@ -7,7 +7,7 @@
 
 ## Dependencies
 
-Needs Xcode 7.0.1 or higher and Swift 2.0 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. No additional libraries or frameworks needed at this point in development.
+Needs Xcode 7 or higher and Swift 2 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. No additional libraries or frameworks needed at this point in development.
 
 ## Installation
 
