@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E2972C41BD46B1100F941F7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		2EB94A731BD32801006C2432 /* TLT_SIgn_in_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLT_SIgn_in_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB94A761BD32801006C2432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EB94A781BD32801006C2432 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 		2EB94A6A1BD32801006C2432 = {
 			isa = PBXGroup;
 			children = (
+				2E2972C41BD46B1100F941F7 /* CONTRIBUTING.md */,
 				2EB94A881BD32D0B006C2432 /* README.md */,
 				2EB94A751BD32801006C2432 /* TLT_SIgn_in_app */,
 				2EB94A741BD32801006C2432 /* Products */,
@@ -288,6 +290,7 @@
 				2EB94A871BD32801006C2432 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
