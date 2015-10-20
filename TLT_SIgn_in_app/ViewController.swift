@@ -26,6 +26,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var lastName: String = newItemArr [1]
         var date: String = newItemArr [2]
         
+        
+
+        
         items.append(newItem!)
         textField.resignFirstResponder()
         
