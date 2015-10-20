@@ -12,8 +12,6 @@
 		2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB94A7A1BD32801006C2432 /* Main.storyboard */; };
 		2EB94A7E1BD32801006C2432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB94A7D1BD32801006C2432 /* Assets.xcassets */; };
 		2EB94A811BD32801006C2432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB94A7F1BD32801006C2432 /* LaunchScreen.storyboard */; };
-		2EED12BA1BD5B7CE0012E45D /* SIListViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED12B91BD5B7CD0012E45D /* SIListViewControllerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2EED12BE1BD5BDFB0012E45D /* SIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED12BD1BD5BDFB0012E45D /* SIDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +24,6 @@
 		2EB94A801BD32801006C2432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EB94A821BD32801006C2432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EB94A881BD32D0B006C2432 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2EED12B91BD5B7CD0012E45D /* SIListViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIListViewControllerTableViewController.swift; sourceTree = "<group>"; };
-		2EED12BD1BD5BDFB0012E45D /* SIDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +60,6 @@
 			children = (
 				2EB94A761BD32801006C2432 /* AppDelegate.swift */,
 				2EB94A781BD32801006C2432 /* ViewController.swift */,
-				2EED12BD1BD5BDFB0012E45D /* SIDetailViewController.swift */,
-				2EED12B91BD5B7CD0012E45D /* SIListViewControllerTableViewController.swift */,
 				2EB94A7A1BD32801006C2432 /* Main.storyboard */,
 				2EB94A7D1BD32801006C2432 /* Assets.xcassets */,
 				2EB94A7F1BD32801006C2432 /* LaunchScreen.storyboard */,
@@ -146,9 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EB94A791BD32801006C2432 /* ViewController.swift in Sources */,
-				2EED12BE1BD5BDFB0012E45D /* SIDetailViewController.swift in Sources */,
 				2EB94A771BD32801006C2432 /* AppDelegate.swift in Sources */,
-				2EED12BA1BD5B7CE0012E45D /* SIListViewControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
