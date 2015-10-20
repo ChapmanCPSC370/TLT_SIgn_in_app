@@ -19,6 +19,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func addButton(sender: UIButton) {
         
         let newItem = textField.text
+        
+        var newItemArr = newItem!.componentsSeparatedByString(" ")
+        
+        var firstName: String = newItemArr [0]
+        var lastName: String = newItemArr [1]
+        var date: String = newItemArr [2]
+        
         items.append(newItem!)
         textField.resignFirstResponder()
         

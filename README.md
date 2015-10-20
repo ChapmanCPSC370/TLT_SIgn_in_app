@@ -17,7 +17,7 @@ Needs Xcode 7 or higher and Swift 2 or higher. To install Xcode you need an Inte
 
 3. Open TLT_SIgn_in_app.xcodeproj with Xcode.
 
-4. Go to Source Control >> TLT_SIgn_in_app - Master >> Configure TLT_SIgn_in_app...
+4. Go to 'Source Control' >> 'TLT_SIgn_in_app - Master' >> 'Configure TLT_SIgn_in_app...'
 
 5. Navigate to Remotes and click the '+' in the bottom left. Write the name of the project and copy and paste the HTTPS clone url of your forked repo. Click add remote.
 
@@ -37,5 +37,5 @@ Potentially use geolocation to verify.
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
-Instructions on how to contribute here: [CONTRIBUTING](CONTRIBUTING.md).
+Instructions on how to [CONTRIBUTE](CONTRIBUTING.md).
 
