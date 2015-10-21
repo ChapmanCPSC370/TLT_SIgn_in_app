@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3D21901BD7113500DDE5F7 /* service2.php in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D218F1BD7113500DDE5F7 /* service2.php */; settings = {ASSET_TAGS = (); }; };
 		2EB94A771BD32801006C2432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB94A761BD32801006C2432 /* AppDelegate.swift */; };
 		2EB94A791BD32801006C2432 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB94A781BD32801006C2432 /* ViewController.swift */; };
 		2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB94A7A1BD32801006C2432 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		2E3D21891BD6F7B600DDE5F7 /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index2.html; sourceTree = "<group>"; };
 		2E3D218A1BD6F7B600DDE5F7 /* service.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = service.php; sourceTree = "<group>"; };
 		2E3D218B1BD6F7B600DDE5F7 /* service1.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = service1.php; sourceTree = "<group>"; };
+		2E3D218F1BD7113500DDE5F7 /* service2.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = service2.php; sourceTree = "<group>"; };
 		2EB94A731BD32801006C2432 /* TLT_SIgn_in_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLT_SIgn_in_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB94A761BD32801006C2432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EB94A781BD32801006C2432 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 		2EB94A6A1BD32801006C2432 = {
 			isa = PBXGroup;
 			children = (
+				2E3D218F1BD7113500DDE5F7 /* service2.php */,
 				2E3D21891BD6F7B600DDE5F7 /* index2.html */,
 				2E3D218A1BD6F7B600DDE5F7 /* service.php */,
 				2E3D218B1BD6F7B600DDE5F7 /* service1.php */,
@@ -133,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EB94A811BD32801006C2432 /* LaunchScreen.storyboard in Resources */,
+				2E3D21901BD7113500DDE5F7 /* service2.php in Resources */,
 				2EB94A7E1BD32801006C2432 /* Assets.xcassets in Resources */,
 				2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */,
 			);
