@@ -30,11 +30,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let firstName: String = newItemArr [0]
         let lastName: String = newItemArr [1]
-        let date: String = newItemArr [2]
+        var date: String = newItemArr [2]
         
-        print(firstName)
-        print(lastName)
-        print(date)
+        var newDateArr = date.componentsSeparatedByString("/")
+        
+        date = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
+        
+        let submitString = firstName + "_" + lastName + "_" + date
+        
+        print(submitString)
+        
+        
         
         items.append(newItem!)
         textField.resignFirstResponder()
@@ -43,9 +49,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         textFieldPerson.text = personInfo
         tableView.reloadData()
         
+        
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(personInfo, forKey: "personInfo")
         defaults.setObject(items, forKey: "items")
+        
         
     }
     
@@ -55,6 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
         
         let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         if (defaults.objectForKey("items") != nil){
             items = defaults.objectForKey("items") as? [String] ?? [String]()
@@ -67,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             textFieldPerson.text = personInfo
         }
         tableView.reloadData()
+        
         
     }
 
