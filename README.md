@@ -34,4 +34,5 @@ Needs Xcode 7 or higher and Swift 2 or higher. To install Xcode you need an Inte
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
 Instructions on how to [CONTRIBUTE](CONTRIBUTING.md).
+[Design overview](Design_overview.png)
 
