@@ -43,9 +43,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(submitString)
             
             //Add if statement to sql statement
-            let sqlStatment = "INSERT INTO SI_sign_in (" + submitString + ") VALUES (\"" + personInfo + "\");"
+            let sqlStatement = "INSERT INTO SI_sign_in (" + submitString + ") VALUES (\"" + personInfo + "\");"
             
-            if (postToDatabase(sqlStatment) == "y"){
+            if (postToDatabase(sqlStatement) == "y"){
             
                 items.append(newItem!)
                 textField.resignFirstResponder()
@@ -80,11 +80,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func alert(alertTitle: String, alertMessage: String){
+        
         let alertController = UIAlertController(title: alertTitle, message:
             alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func postToDatabase(sqlStatement: String) -> String{
