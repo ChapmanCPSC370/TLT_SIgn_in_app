@@ -32,38 +32,103 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let lastName: String = newItemArr [1]
         var date: String = newItemArr [2]
         
-        var newDateArr = date.componentsSeparatedByString("/")
-        
-        date = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
-        
-        let submitString = firstName + "_" + lastName + "_" + date
-        
-        print(submitString)
-        
-        
-        
-        items.append(newItem!)
-        textField.resignFirstResponder()
-        
-        textField.text = ""
-        textFieldPerson.text = personInfo
-        tableView.reloadData()
-        
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(personInfo, forKey: "personInfo")
-        defaults.setObject(items, forKey: "items")
-        
+        if date.rangeOfString("/") != nil{
+            
+            var newDateArr = date.componentsSeparatedByString("/")
+            
+            date = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
+            
+            let submitString = firstName.lowercaseString + "_" + lastName.lowercaseString + "_" + date
+            
+            print(submitString)
+            
+            //Add if statement to sql statement
+            let sqlStatment = "INSERT INTO SI_sign_in (" + submitString + ") VALUES (\"" + personInfo + "\");"
+            
+            if (postToDatabase(sqlStatment) == "y"){
+            
+                items.append(newItem!)
+                textField.resignFirstResponder()
+            
+                textField.text = ""
+                textFieldPerson.text = personInfo
+                tableView.reloadData()
+            
+                saveCoreVariables()
+            
+            } else {
+                
+                alert("Error", alertMessage: "Could not connect to database")
+                
+            }
+            
+        } else {
+            
+            alert("Date", alertMessage: "Invalid date input")
+            
+        }
+    
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        loadCoreVariables()
         
+    }
+    
+    func alert(alertTitle: String, alertMessage: String){
+        let alertController = UIAlertController(title: alertTitle, message:
+            alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func postToDatabase(sqlStatement: String) -> String{
+        
+        var returnVar = "n"
+        
+        let url: NSURL = NSURL(string: "http://tltsigninapp.byethost7.com/service.php")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
+        
+        let bodyData = "data=\"" + sqlStatement + "\""
+        
+        request.HTTPMethod = "POST"
+        
+        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+            {
+                (response, data, error) in
+                print(response)
+                
+                if let HTTPResponse = response as? NSHTTPURLResponse {
+                    let statusCode = HTTPResponse.statusCode
+                    
+                    if statusCode == 200 {
+                        returnVar = "y"
+                    }
+                }
+                
+        }
+        
+        return returnVar
+        
+    }
+    
+    func saveCoreVariables(){
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(personInfo, forKey: "personInfo")
+        defaults.setObject(items, forKey: "items")
+        
+    }
+    
+    func loadCoreVariables(){
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
         
         if (defaults.objectForKey("items") != nil){
             items = defaults.objectForKey("items") as? [String] ?? [String]()
@@ -76,7 +141,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             textFieldPerson.text = personInfo
         }
         tableView.reloadData()
-        
         
     }
 

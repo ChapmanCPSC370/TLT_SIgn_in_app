@@ -12,7 +12,7 @@ if (mysqli_connect_errno())
 $postVar = $_POST['data'];
 
 if (!empty($postVar)) {
-    mail("sachour1996@gmail.com","IT WORKED","The POST was set and button was pressed!!!!");
+    mail("sachour96@gmail.com","IT WORKED","The POST was set and button was pressed!!!!");
 }
 
 $sql = $postVar;
