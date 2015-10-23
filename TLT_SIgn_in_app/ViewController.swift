@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var newItemArr = newItem!.componentsSeparatedByString(" ")
         
-        let firstName: String = newItemArr [0]
-        let lastName: String = newItemArr [1]
-        var date: String = newItemArr [2]
+        let firstName: String = newItemArr[0].lowercaseString
+        let lastName: String = newItemArr[1].lowercaseString
+        var date: String = newItemArr[2]
         
         if date.rangeOfString("/") != nil{
             
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             date = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
             
-            let submitString = firstName.lowercaseString + "_" + lastName.lowercaseString + "_" + date
+            let submitString = firstName + "_" + lastName + "_" + date
             
             print(submitString)
             
@@ -92,29 +92,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func postToDatabase(sqlStatement: String) -> String{
         
         var returnVar = "n"
+        returnVar = "y"
         
-        let url: NSURL = NSURL(string: "http://tltsigninapp.byethost7.com/service.php")!
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-        
-        let bodyData = "data=\"" + sqlStatement + "\""
-        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://tltsigninapp.byethost7.com/service.php")!)
         request.HTTPMethod = "POST"
-        
-        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
-            {
-                (response, data, error) in
-                print(response)
-                
-                if let HTTPResponse = response as? NSHTTPURLResponse {
-                    let statusCode = HTTPResponse.statusCode
-                    
-                    if statusCode == 200 {
-                        returnVar = "y"
-                    }
-                }
-                
+        let postString = "data=something"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                self.alert("Error", alertMessage: "error=\(error)")
+                return
+            }
+            
+            self.alert("PHP Script Responded", alertMessage: "response = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            self.alert("Response", alertMessage: "responseString = \(responseString)")
         }
+        task.resume()
         
         return returnVar
         
