@@ -42,25 +42,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             print(submitString)
             
-            //Add if statement to sql statement
-            let sqlStatement = "INSERT INTO SI_sign_in (" + submitString + ") VALUES (\"" + personInfo + "\");"
+            items.append(newItem!)
+            textField.resignFirstResponder()
             
-            if (postToDatabase(sqlStatement) == "y"){
+            textField.text = ""
+            textFieldPerson.text = personInfo
+            tableView.reloadData()
             
-                items.append(newItem!)
-                textField.resignFirstResponder()
+            saveCoreVariables()
             
-                textField.text = ""
-                textFieldPerson.text = personInfo
-                tableView.reloadData()
-            
-                saveCoreVariables()
-            
-            } else {
-                
-                alert("Error", alertMessage: "Could not connect to database")
-                
-            }
             
         } else {
             
@@ -96,20 +86,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://tltsigninapp.byethost7.com/service.php")!)
         request.HTTPMethod = "POST"
-        let postString = "data=something"
+        let postString = "data=\"" + sqlStatement + "\";"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
             if error != nil {
-                self.alert("Error", alertMessage: "error=\(error)")
+                print("error=\(error)")
                 return
             }
             
-            self.alert("PHP Script Responded", alertMessage: "response = \(response)")
+            print("response = \(response)")
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            self.alert("Response", alertMessage: "responseString = \(responseString)")
+            print("response = \(responseString)")
         }
         task.resume()
         
