@@ -31,7 +31,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //if the data that the user inputted is correct
         if (dataString != ""){
-        
+            
+            updateDatabase(dataString, rowData: personInfo)
+            
             items.insert(newItem!, atIndex: 0)
             textField.resignFirstResponder()
             
@@ -52,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    //update the Parse database, return true if it worked
+    //update the Parse database
     func updateDatabase(columnName: String,rowData: String){
         
         let SIObject = PFObject(className: "SI_Sign_in")
