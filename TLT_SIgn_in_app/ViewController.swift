@@ -14,9 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var personInfo: String = ""
     var items = [String]()
     
-    //Implement this to prevent people from signing in their friends
-    //var changePersonInfoCount = 0
-    
     @IBOutlet var textField: UITextField!
     
     @IBOutlet var textFieldPerson: UITextField!
@@ -58,9 +55,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //update the Parse database, return true if it worked
     func updateDatabase(columnName: String,rowData: String){
         
-        let testObject = PFObject(className: "SI_Sign_in")
-        testObject[columnName] = rowData
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        let SIObject = PFObject(className: "SI_Sign_in")
+        SIObject[columnName] = rowData
+        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("it worked")
         }
         

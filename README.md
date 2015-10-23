@@ -7,7 +7,7 @@
 
 ## Dependencies
 
-Needs Xcode 7 or higher and Swift 2 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. Parse is needed for the backend.
+Needs [Xcode 7](https://developer.apple.com/xcode/download/) or higher and Swift 2 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. [Parse](https://www.parse.com) is needed for the backend.
 
 ## Installation
 
@@ -23,7 +23,9 @@ If you want to completely fork the project:
 
 5. Navigate to Remotes and click the '+' in the bottom left. Write the name of the project and copy and paste the HTTPS clone url of your forked repo. Click add remote.
 
-6. Whenever you commit changes make sure the checkbox for 'Push to Remote' is checked.
+6. [Install Parse](https://www.parse.com/apps/quickstart#parse_data/mobile/ios/swift/existing)
+
+7. Whenever you commit changes make sure the checkbox for 'Push to Remote' is checked.
 
 If you want to edit specific files (ie Viewcontroller.swift)
 
@@ -33,7 +35,9 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 3. Open TLT_SIgn_in_app.xcodeproj with Xcode.
 
-4. Push any edits made to individual files
+4. [Install Parse](https://www.parse.com/apps/quickstart#parse_data/mobile/ios/swift/existing)
+
+5. Push any edits made to individual files.
 
 ##Usage
 
