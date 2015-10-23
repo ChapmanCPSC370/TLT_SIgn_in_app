@@ -6,6 +6,7 @@
 //  Copyright © 2015 Samy Achour. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 @UIApplicationMain
@@ -13,8 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // [Optional] Power your app with Local Datastore. For more info, go to
+        // https://parse.com/docs/ios_guide#localdatastore/iOS
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("tsE9kSexhlGnOngbVcPyp3eHeV9tkpxFjTXmjpYT",
+            clientKey: "2o2X5JahBZJNht6F2FWu6xv0n9F8wpdk0vfSI88x")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
         // Override point for customization after application launch.
         return true
     }
