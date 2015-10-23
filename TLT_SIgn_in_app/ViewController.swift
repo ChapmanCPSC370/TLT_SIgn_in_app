@@ -6,12 +6,16 @@
 //  Copyright © 2015 Samy Achour. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var personInfo: String = ""
     var items = [String]()
+    
+    //Implement this to prevent people from signing in their friends
+    //var changePersonInfoCount = 0
     
     @IBOutlet var textField: UITextField!
     
@@ -26,38 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         personInfo = newInfo!
         
-        var newItemArr = newItem!.componentsSeparatedByString(" ")
+        let dataString = addUnderscores(newItem!)
         
-        let firstName: String = newItemArr[0].lowercaseString
-        let lastName: String = newItemArr[1].lowercaseString
-        var date: String = newItemArr[2]
+        //if the data that the user inputted is correct
+        if (dataString != ""){
         
-        if date.rangeOfString("/") != nil{
-            
-            var newDateArr = date.componentsSeparatedByString("/")
-            
-            date = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
-            
-            let submitString = firstName + "_" + lastName + "_" + date
-            
-            print(submitString)
-            
-            items.append(newItem!)
+            items.insert(newItem!, atIndex: 0)
             textField.resignFirstResponder()
             
             textField.text = ""
-            textFieldPerson.text = personInfo
             tableView.reloadData()
             
             saveCoreVariables()
             
-            
-        } else {
-            
-            alert("Date", alertMessage: "Invalid date input")
-            
         }
-    
         
     }
     
@@ -69,7 +55,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func alert(alertTitle: String, alertMessage: String){
+    //update the Parse database, return true if it worked
+    func updateDatabase(columnName: String,rowData: String){
+        
+        let testObject = PFObject(className: "SI_Sign_in")
+        testObject[columnName] = rowData
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("it worked")
+        }
+        
+    }
+    
+    //Create an alert with a title, message, and dismiss button
+    func alert(alertTitle: String,alertMessage: String){
         
         let alertController = UIAlertController(title: alertTitle, message:
             alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
@@ -79,34 +77,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func postToDatabase(sqlStatement: String) -> String{
+    //So we can convert "Bob Smith 10/22/15" to "bob_smith_10_22_15"
+    func addUnderscores(inputString: String) -> String{
         
-        var returnVar = "n"
-        returnVar = "y"
+        var returnString = ""
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://tltsigninapp.byethost7.com/service.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "data=\"" + sqlStatement + "\";"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
+        //Check if the string contains a date with forward slashes
+        if inputString.rangeOfString("/") != nil {
             
-            if error != nil {
-                print("error=\(error)")
-                return
+            //split string by the spaces, put in new array
+            let newItemArr = inputString.componentsSeparatedByString(" ")
+            
+            for section in newItemArr {
+                
+                //if this contains a forward slash this is the section where the date is
+                if section.rangeOfString("/") != nil {
+                    
+                    //replace forward slashes with underscores and add to return String
+                    let newDateArr = section.componentsSeparatedByString("/")
+                    let submitDate = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
+                    returnString += submitDate
+                    
+                } else {
+                    
+                    //if this is just a word add it and an underscore to return string
+                    returnString += section.lowercaseString + "_"
+                    
+                }
+                
             }
             
-            print("response = \(response)")
+        } else if inputString == ""{
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("response = \(responseString)")
-        }
-        task.resume()
+            alert("Invalid entry", alertMessage: "Empty")
         
-        return returnVar
+        } else {
+            
+            alert("Invalid entry", alertMessage: "need to use forward slashes for date")
+            
+        }
+        
+        return returnString
         
     }
     
+    //Saves the variables we need to remember
     func saveCoreVariables(){
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -115,6 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    //Loads the variables we need to remember
     func loadCoreVariables(){
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -144,6 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    //load the table view based off the items array
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
