@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!-- androidsisignin.parseapp.com -->
+
+<!-- for command line tools cat /Users/samy/Documents/Programming_Stuff/TLT_SIgn_in_app/TLT_SIgn_in_app/androidSignIn.html > public/index.html-->
+
+<!--
+ Next, you might want to deploy this code with:
+ 
+	cd /Users/samy/my_parse_app
+	parse deploy
+ 
+ Once deployed you can test that it works by running:
+ curl -X POST \
+ -H "X-Parse-Application-Id: q8fJjtBWG8kXR0Y0Ee3hq20XpOFbw0tHIDbdCUAb" \
+ -H "X-Parse-REST-API-Key: UFDOqpzFCpubWzFVYE6V5cDIe0jXkVqXo9HiVblD" \
+ -H "Content-Type: application/json" \
+ -d '{}' \
+ https://api.parse.com/1/functions/hello 
+ -->
+
+<html>
+<head>
+    
+    <title>Android SI Sign in</title>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+</head>
+
+<body>
+    
+    
+    
+    <script type="text/javascript">
+        Parse.initialize("ugRyHr5ABLatFUEZaK1nrkG7AjmTyKEMzMmXXVpW", "O0FgKhHzqhoKxuMby2tQu6z9omOtyUavhojliQ3v");
+        
+        var SIObject = Parse.Object.extend("SI_Sign_in");
+        var siObject = new SIObject();
+        siObject.save({foo: "bar"}).then(function(object) {
+                                           alert("Successfully edited the database");
+                                           });
+    </script>
+
+</body>
+
+</html>
