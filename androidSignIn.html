@@ -24,20 +24,53 @@
     
     <title>Android SI Sign in</title>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    
 </head>
 
 <body>
     
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
     
+    <form name="data" action="submitscript.php" target="dummyframe" onsubmit="return submitData()" method="post">
+        
+        YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo">
+        SIFirstname SILastname MM/DD/YYYY: <input type="text" name="SIInfo">
+        <input type="submit" value="Submit">
+            
+    </form>
     
     <script type="text/javascript">
+        
         Parse.initialize("ugRyHr5ABLatFUEZaK1nrkG7AjmTyKEMzMmXXVpW", "O0FgKhHzqhoKxuMby2tQu6z9omOtyUavhojliQ3v");
         
-        var SIObject = Parse.Object.extend("SI_Sign_in");
-        var siObject = new SIObject();
-        siObject.save({foo: "bar"}).then(function(object) {
-                                           alert("Successfully edited the database");
-                                           });
+        function submitData() {
+            
+            var personInfo = document.forms["data"]["personInfo"].value;
+            var SIInfo = document.forms["data"]["SIInfo"].value;
+            
+            alert(SIInfo + ": " + personInfo);
+            
+            SIInfo = String(SIInfo).replace(" ", "_");
+            SIInfo = String(SIInfo).replace(" ", "_");
+            SIInfo = String(SIInfo).replace("\/", "_");
+            SIInfo = String(SIInfo).replace("\/", "_");
+            SIInfo = String(SIInfo).toLowerCase();
+            
+            alert(SIInfo + ": " + personInfo);
+            
+            if (personInfo == null || personInfo == "" || SIInfo == null || SIInfo == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            
+            var TestObject = Parse.Object.extend("SI_Sign_in");
+            var testObject = new TestObject();
+            testObject.save(SIInfo, personInfo).then(function(object) {
+                                               alert("yay! it worked");
+                                               });
+            
+        }
+    
     </script>
 
 </body>

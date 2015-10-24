@@ -59,8 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let SIObject = PFObject(className: "SI_Sign_in")
         SIObject[columnName] = rowData
-        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("it worked")
+        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in print("it worked")
+            
         }
         
     }
@@ -68,8 +68,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Create an alert with a title, message, and dismiss button
     func alert(alertTitle: String,alertMessage: String){
         
-        let alertController = UIAlertController(title: alertTitle, message:
-            alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
         alertController.addAction(UIAlertAction(title: "dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -84,27 +84,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Check if the string contains a date with forward slashes
         if inputString.rangeOfString("/") != nil {
             
-            //split string by the spaces, put in new array
-            let newItemArr = inputString.componentsSeparatedByString(" ")
+            //split string by the spaces, then join it by underscore
+            var newItemArr = inputString.componentsSeparatedByString(" ")
+            var inputString = newItemArr.joinWithSeparator("_")
             
-            for section in newItemArr {
-                
-                //if this contains a forward slash this is the section where the date is
-                if section.rangeOfString("/") != nil {
-                    
-                    //replace forward slashes with underscores and add to return String
-                    let newDateArr = section.componentsSeparatedByString("/")
-                    let submitDate = newDateArr[0] + "_" + newDateArr[1] + "_" + newDateArr[2]
-                    returnString += submitDate
-                    
-                } else {
-                    
-                    //if this is just a word add it and an underscore to return string
-                    returnString += section.lowercaseString + "_"
-                    
-                }
-                
-            }
+            //split string by the forward slashes, then join it by underscore
+            newItemArr = inputString.componentsSeparatedByString("/")
+            inputString = newItemArr.joinWithSeparator("_")
+            
+            returnString = inputString.lowercaseString
             
         } else if inputString == ""{
             
@@ -134,6 +122,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
+        //if this is not the first time the user had loaded the app
         if (defaults.objectForKey("items") != nil){
             items = defaults.objectForKey("items") as? [String] ?? [String]()
         }
