@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>SI Sign in</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+    
+    <form name="myForm" action="demo_form.asp" onsubmit="return inputData()" method="post">
+    <p>YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo" required></p>
+    <p>SIFirstName SILastName MM/DD/YYYY: <input type="text" name="SIData" required></p>
+    <p><input type="submit" value="Submit"></p>
+    </form>
+
+    <div style="display:none" class="error">
+      <p>Error</p>
+    </div>
+
+    <div style="display:none" class="success">
+      <p>Successfully added your information</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function inputData(){
+      Parse.initialize("tsE9kSexhlGnOngbVcPyp3eHeV9tkpxFjTXmjpYT", "wrH20QPtHRJksNhUq9eXWBhOhFU6bgCbWnSbCYBH");
+      
+      var personInfo = document.forms["myForm"]["personInfo"].value;
+      var SIData = document.forms["myForm"]["SIData"].value;
+
+      SIData = SIData.replace(" ", "_")
+      SIData = SIData.replace("/", "_")
+
+      var SIObject = Parse.Object.extend("SI_Sign_in");
+      var SIObject = new SIObject();
+      SIObject.save({SIData: personInfo}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+
+    }
+    });
+  </script>
+</body>
+
+</html>
