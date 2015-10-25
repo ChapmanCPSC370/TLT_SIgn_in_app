@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- androidsisignin.parseapp.com -->
+<!-- androidsisignin.parseapp.com D2c3KZXcavTIwi260cEcJn20dc5nFrtwjWHkPgGH-->
 
 <!-- for command line tools cat /Users/samy/Documents/Programming_Stuff/TLT_SIgn_in_app/TLT_SIgn_in_app/androidSignIn.html > public/index.html-->
 
@@ -34,7 +34,7 @@
     <form name="data" action="submitscript.php" target="dummyframe" onsubmit="return submitData()" method="post">
         
         YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo">
-        SIFirstname SILastname MM/DD/YYYY: <input type="text" name="SIInfo">
+        SIFirstname SILastname: <input type="text" name="SIInfo">
         <input type="submit" value="Submit">
             
     </form>
@@ -48,15 +48,8 @@
             var personInfo = document.forms["data"]["personInfo"].value;
             var SIInfo = document.forms["data"]["SIInfo"].value;
             
-            alert(SIInfo + ": " + personInfo);
-            
             SIInfo = String(SIInfo).replace(" ", "_");
-            SIInfo = String(SIInfo).replace(" ", "_");
-            SIInfo = String(SIInfo).replace("\/", "_");
-            SIInfo = String(SIInfo).replace("\/", "_");
             SIInfo = String(SIInfo).toLowerCase();
-            
-            alert(SIInfo + ": " + personInfo);
             
             if (personInfo == null || personInfo == "" || SIInfo == null || SIInfo == "") {
                 alert("Name must be filled out");
@@ -66,7 +59,7 @@
             var TestObject = Parse.Object.extend("SI_Sign_in");
             var testObject = new TestObject();
             testObject.save(SIInfo, personInfo).then(function(object) {
-                                               alert("yay! it worked");
+                                               alert("Successfully submitted to database");
                                                });
             
         }

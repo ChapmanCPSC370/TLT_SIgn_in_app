@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             updateDatabase(dataString, rowData: personInfo)
             
-            items.insert(newItem!, atIndex: 0)
+            items.insert(newItem! + " " + getDate(), atIndex: 0)
             textField.resignFirstResponder()
             
             textField.text = ""
@@ -76,32 +76,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    //So we can convert "Bob Smith 10/22/15" to "bob_smith_10_22_15"
-    func addUnderscores(inputString: String) -> String{
+    //So we can convert "Bob Smith" to "bob_smith"
+    func addUnderscores(var inputString: String) -> String{
         
         var returnString = ""
         
         //Check if the string contains a date with forward slashes
-        if inputString.rangeOfString("/") != nil {
+        if inputString != "" {
             
             //split string by the spaces, then join it by underscore
-            var newItemArr = inputString.componentsSeparatedByString(" ")
-            var inputString = newItemArr.joinWithSeparator("_")
-            
-            //split string by the forward slashes, then join it by underscore
-            newItemArr = inputString.componentsSeparatedByString("/")
+            let newItemArr = inputString.componentsSeparatedByString(" ")
             inputString = newItemArr.joinWithSeparator("_")
             
             returnString = inputString.lowercaseString
             
-        } else if inputString == ""{
-            
-            alert("Invalid entry", alertMessage: "Empty")
-        
         } else {
             
-            alert("Invalid entry", alertMessage: "need to use forward slashes for date")
-            
+            alert("Invalid entry", alertMessage: "Empty input")
+        
         }
         
         return returnString
@@ -134,6 +126,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             textFieldPerson.text = personInfo
         }
         tableView.reloadData()
+        
+    }
+    
+    //Get current date and time for table data insertion
+    func getDate() -> String {
+        
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        return DateInFormat
         
     }
 
