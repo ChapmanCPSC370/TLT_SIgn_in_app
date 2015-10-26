@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var personInfo: String = ""
     var items = [String]()
+    var updatedDatabase = false
     
     @IBOutlet var textField: UITextField!
     
@@ -34,13 +35,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             updateDatabase(dataString, rowData: personInfo)
             
-            items.insert(newItem! + " " + getDate(), atIndex: 0)
-            textField.resignFirstResponder()
+            if (updatedDatabase == true) {
             
-            textField.text = ""
-            tableView.reloadData()
+                items.insert(newItem! + " " + getDate(), atIndex: 0)
+                textField.resignFirstResponder()
             
-            saveCoreVariables()
+                textField.text = ""
+                tableView.reloadData()
+            
+                saveCoreVariables()
+                
+                updatedDatabase = false
+            
+            } else {
+                
+                alert("Connection", alertMessage: "Could not update database")
+                
+            }
             
         }
         
@@ -59,8 +70,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let SIObject = PFObject(className: "SI_Sign_in")
         SIObject[columnName] = rowData
-        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in print("it worked") }
+        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in self.updatedDatabaseTrue() }
         
+    }
+    
+    func updatedDatabaseTrue() {
+        updatedDatabase = true
     }
     
     //Create an alert with a title, message, and dismiss button
