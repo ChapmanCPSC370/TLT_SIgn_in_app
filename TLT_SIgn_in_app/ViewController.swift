@@ -59,9 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let SIObject = PFObject(className: "SI_Sign_in")
         SIObject[columnName] = rowData
-        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in print("it worked")
-            
-        }
+        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in print("it worked") }
         
     }
     
@@ -158,6 +156,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = items[indexPath.row]
         
         return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let autoCompleteString = items[indexPath.row]
+        let returnString = autoCompleteString.componentsSeparatedByString(" ")
+        
+        textField.text = returnString[0] + " " + returnString[1]
+        
+        tableView.reloadData()
         
     }
 
