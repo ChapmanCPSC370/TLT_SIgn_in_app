@@ -39,15 +39,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addButton(sender: UIButton) {
         
-        let newItem = textField.text
-        let newInfo = textFieldPerson.text
+        let siName = textField.text!
+        personInfo = textFieldPerson.text!
         
-        let dataString = addUnderscores(newItem!)
+        let columnName = addUnderscores(siName)
         
         //if the user actually typed something in both text fields
-        if (dataString != "" && newInfo! != ""){
+        if (personInfo != "" && siName != ""){
             
-            update(dataString, rowData: newInfo!, tableRowString: newItem!)
+            update(columnName, rowData: personInfo, tableRowString: siName)
             
         } else {
             
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Adds latest value to the items array which the 'History' table loads from
         items.insert(tableRowString + " " + getDate(), atIndex: 0)
         textField.resignFirstResponder()
-            
+        
         textField.text = ""
         tableView.reloadData()
             
@@ -75,17 +75,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    //update the Parse database
+    //Update the Parse database
     func updateDatabase(columnName: String,rowData: String){
         
         let SIObject = PFObject(className: "SI_Sign_in")
         SIObject[columnName] = rowData
         SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             
-            //if database was not successfully updated
+            //If database was not successfully updated
             if !success {
                 
-                self.alert("Internet Connection", alertMessage: "Could not update database, Even though value was added to history, online database was not updated. Please try again. If this window does not appear then update was successful.")
+                self.alert("Internet Connection!!!", alertMessage: "Could not update database, Even though value was added to history, online database was not updated. Please try again. If this window does not appear again then update was successful.")
                 
             }
         
@@ -109,7 +109,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        //if this is not the first time the user had loaded the app
+        //If this is not the first time the user had loaded the app
         if (defaults.objectForKey("items") != nil){
             items = defaults.objectForKey("items") as? [String] ?? [String]()
         }
