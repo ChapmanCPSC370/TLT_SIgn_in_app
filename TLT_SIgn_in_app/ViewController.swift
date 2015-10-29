@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //if the user actually typed something in both text fields
         if (personInfo != "" && siName != ""){
             
-            update(columnName, rowData: personInfo, tableRowString: siName)
+            updateDatabase(columnName, rowData: personInfo, tableRowString: siName)
             
         } else {
             
@@ -59,33 +59,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: Updating data in Parse/Table functions
     
-    //Updates Parse database and Table cells
-    func update(columnName: String, rowData: String, tableRowString: String) {
-        
-        updateDatabase(columnName, rowData: rowData)
-        
-        //Adds latest value to the items array which the 'History' table loads from
-        items.insert(tableRowString + " " + getDate(), atIndex: 0)
-        textField.resignFirstResponder()
-        
-        textField.text = ""
-        tableView.reloadData()
-            
-        saveCoreVariables()
-        
-    }
-    
-    //Update the Parse database
-    func updateDatabase(columnName: String,rowData: String){
+    //Update the Parse database and Table cells
+    func updateDatabase(columnName: String,rowData: String, tableRowString: String){
         
         let SIObject = PFObject(className: "SI_Sign_in")
         SIObject[columnName] = rowData
         SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             
-            //If database was not successfully updated
-            if !success {
+            //if parse database was successfully updated
+            if success {
                 
-                self.alert("Internet Connection!!!", alertMessage: "Could not update database, Even though value was added to history, online database was not updated. Please try again. If this window does not appear again then update was successful.")
+                //Adds latest value to the items array which the 'History' table loads from
+                self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
+                self.textField.resignFirstResponder()
+                
+                self.textField.text = ""
+                self.tableView.reloadData()
+                
+                self.saveCoreVariables()
+            
+            //if it wasn't
+            } else {
+                
+                self.alert("Internet Connection!!!", alertMessage: "Could not update database, Please try again.")
                 
             }
         
