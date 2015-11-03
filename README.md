@@ -45,6 +45,10 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](Design_overview.png)
 
+##License
+
+See the [LICENSE](License.md) file for license rights and limitations (MIT).
+
 ## Getting help
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.

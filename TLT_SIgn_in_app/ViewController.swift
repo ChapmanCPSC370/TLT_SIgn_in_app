@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //if it wasn't
             } else {
                 
-                self.alert("Internet Connection!!!", alertMessage: "Could not update database, Please try again.")
+                self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
                 
             }
         
