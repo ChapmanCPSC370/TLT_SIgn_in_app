@@ -29,7 +29,6 @@
 		2EF55A401BD9D4BE00C9FA29 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF55A3F1BD9D4BE00C9FA29 /* SystemConfiguration.framework */; };
 		2EF55A421BD9D4D300C9FA29 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF55A411BD9D4D300C9FA29 /* libz.tbd */; };
 		2EF55A441BD9D4E400C9FA29 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF55A431BD9D4E400C9FA29 /* libsqlite3.tbd */; };
-		2EF7F7011BE9771C00D148DB /* License.md in Resources */ = {isa = PBXBuildFile; fileRef = 2EF7F7001BE9771C00D148DB /* License.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,7 @@
 		2EF55A411BD9D4D300C9FA29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2EF55A431BD9D4E400C9FA29 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2EF55A471BD9DA9600C9FA29 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2EF7F7001BE9771C00D148DB /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = License.md; path = ../../../../Downloads/License.md; sourceTree = "<group>"; };
+		2EF7F7001BE9771C00D148DB /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				2EB7FF411BDB1DAF00037DB4 /* androidSignIn.html */,
-				2EF7F7001BE9771C00D148DB /* License.md */,
 				2EF55A471BD9DA9600C9FA29 /* .gitignore */,
+				2EF7F7001BE9771C00D148DB /* License.md */,
 				2E3D21911BD7674A00DDE5F7 /* Design_overview.png */,
 				2E2972C41BD46B1100F941F7 /* CONTRIBUTING.md */,
 				2EB94A881BD32D0B006C2432 /* README.md */,
@@ -229,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EF7F7011BE9771C00D148DB /* License.md in Resources */,
 				2EB94A811BD32801006C2432 /* LaunchScreen.storyboard in Resources */,
 				2EB94A7E1BD32801006C2432 /* Assets.xcassets in Resources */,
 				2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */,
