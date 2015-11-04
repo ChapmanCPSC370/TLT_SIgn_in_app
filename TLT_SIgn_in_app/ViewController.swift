@@ -80,7 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 self.saveCoreVariables()
                 
-                //Implement if you want to start limiting personal data changes
+                //Implement if you want to start limiting personal data changes, make it a core variable
                 //self.textFieldPerson.userInteractionEnabled = false
             
             //if it wasn't
