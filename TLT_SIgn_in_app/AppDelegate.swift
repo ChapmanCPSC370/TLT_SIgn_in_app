@@ -51,6 +51,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func referenceHTML {
+        
+        <form name="data" action="submitscript.php" target="dummyframe" onsubmit="return submitData()" method="post">
+        
+        YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo">
+        SIFirstname SILastname: <input type="text" name="SIInfo">
+        <input type="submit" value="Submit">
+        
+        </form>
+        
+        <script type="text/javascript">
+        
+        Parse.initialize("ugRyHr5ABLatFUEZaK1nrkG7AjmTyKEMzMmXXVpW", "O0FgKhHzqhoKxuMby2tQu6z9omOtyUavhojliQ3v");
+        
+        function submitData() {
+            
+            var personInfo = document.forms["data"]["personInfo"].value;
+            var SIInfo = document.forms["data"]["SIInfo"].value;
+            
+            SIInfo = String(SIInfo).replace(" ", "_");
+            SIInfo = String(SIInfo).toLowerCase();
+            
+            if (personInfo == null || personInfo == "" || SIInfo == null || SIInfo == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            
+
+    }
 
 
 }

@@ -202,6 +202,67 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return returnString
         
     }
+    
+    
+    
+    @IBAction override func addButton(sender: UIButton) {
+        
+        let siName = textField.text!
+        personInfo = textFieldPerson.text!
+        
+        let columnName = addUnderscores(siName)
+        
+        //if the user actually typed something in both text fields
+        if (personInfo != "" && siName != ""){
+            
+            updateDatabase(columnName, rowData: personInfo, tableRowString: siName)
+            
+        } else {
+            
+            alert("Invalid input", alertMessage: "Text field empty")
+            
+        }
+        
+    }
+    
+    // MARK: Updating data in Parse/Table functions
+    
+    //Update the Parse database and Table cells
+    func override updateDatabase(columnName: String,rowData: String, tableRowString: String){
+        
+        let SIObject = PFObject(className: "SI_Sign_in")
+        SIObject[columnName] = rowData
+        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            //if parse database was successfully updated
+            //(Parse uses UTC time)
+            if success {
+                
+                //Adds latest value to the items array which the 'History' table loads from
+                self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
+                self.textField.resignFirstResponder()
+                
+                self.textField.text = ""
+                self.tableView.reloadData()
+                
+                self.saveCoreVariables()
+                
+                //Implement if you want to start limiting personal data changes, make it a core variable
+                //self.textFieldPerson.userInteractionEnabled = false
+                
+                //if it wasn't
+            } else {
+                
+                self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
+                
+            }
+            
+        }
+        
+    }
+
 
 }
+
+
 
