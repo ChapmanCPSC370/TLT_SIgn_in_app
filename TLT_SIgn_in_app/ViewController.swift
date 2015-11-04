@@ -9,12 +9,13 @@
 import Parse
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     // MARK: Global core variables
     
     var personInfo: String = ""
     var items = [String]()
+    var changedPersonInfo = 0
     
     // MARK: App utilities
     
@@ -28,6 +29,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //adding target for function to run when text field of personal info is changed
+        textFieldPerson.delegate = self
+        
+        textFieldPerson.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        
+        //load the variables that are stored outside of the app
         loadCoreVariables()
         
     }
@@ -41,17 +48,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let siName = textField.text!
         personInfo = textFieldPerson.text!
-        
+                
         let columnName = addUnderscores(siName)
         
-        //if the user actually typed something in both text fields
-        if (personInfo != "" && siName != ""){
+        //if the user actually typed something in both text fields AND hasn't surpassed the allowed change limit on their personal info.
+        if (personInfo != "" && siName != "" && changedPersonInfo < 4){
             
             updateDatabase(columnName, rowData: personInfo, tableRowString: siName)
             
         } else {
             
-            alert("Invalid input", alertMessage: "Text field empty")
+            alert("Invalid input", alertMessage: "Text field empty OR you changed your personal data too many times.")
             
         }
         
@@ -97,6 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(personInfo, forKey: "personInfo")
         defaults.setObject(items, forKey: "items")
+        defaults.setObject(changedPersonInfo, forKey: "changedPersonInfo")
         
     }
     
@@ -111,6 +119,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if (defaults.objectForKey("personInfo") != nil){
             personInfo = defaults.objectForKey("personInfo") as! String
+        }
+        
+        if (defaults.objectForKey("changedPersonInfo") != nil){
+            changedPersonInfo = defaults.objectForKey("changedPersonInfo") as! Int
         }
         
         if personInfo != ""{
@@ -151,6 +163,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // MARK: Tools
+    
+    //If the personal info text field is changed then add 1 to the changedPersonInfo variable. Warn the user if they are about to be 'banned'
+    func textFieldDidChange(textField: UITextField) {
+        changedPersonInfo += 1
+        
+        if (changedPersonInfo == 2) {
+            alert("Personal Info", alertMessage: "You can only change your name and ID number information one more time. Please input the correct change this time")
+        }
+        
+    }
     
     //Create an alert with a title, message, and dismiss button
     func alert(alertTitle: String,alertMessage: String){
