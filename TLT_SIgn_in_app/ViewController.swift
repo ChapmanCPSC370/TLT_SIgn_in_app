@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    // MARK: Updating data in Parse/Table functions
+    // MARK: Updating data in Parse/Table function
     
     //Update the Parse database and Table cells
     func updateDatabase(columnName: String,rowData: String, tableRowString: String){
@@ -83,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 //Implement if you want to start limiting personal data changes, make it a core variable
                 //self.textFieldPerson.userInteractionEnabled = false
             
-            //if it wasn't
+            //if parse database wasn't successfully updated
             } else {
                 
                 self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
