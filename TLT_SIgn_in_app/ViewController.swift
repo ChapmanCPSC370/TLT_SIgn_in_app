@@ -63,47 +63,65 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Update the Parse database and Table cells
     func updateDatabase(columnName: String,rowData: String, tableRowString: String){
         
-        let SIObject = PFObject(className: "SI_Sign_in")
-        SIObject[columnName] = rowData
-        SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            
-            //if parse database was successfully updated
-            //(Parse uses UTC time)
-            if success {
+        let query = PFQuery(className:"SI_Sign_in")
+        query.getObjectInBackgroundWithId("LSkiYqNuPO") {
+            (SISignin: PFObject?, error: NSError?) -> Void in
+            if error == nil && SISignin != nil {
                 
-                self.checkIfColumnExists(columnName)
-                
-                //Adds latest value to the items array which the 'History' table loads from
-                self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
-                self.textField.resignFirstResponder()
-                
-                self.textField.text = ""
-                self.tableView.reloadData()
-                
-                self.saveCoreVariables()
-                
-                //Implement if you want to start limiting personal data changes, make it a core variable
-                //self.textFieldPerson.userInteractionEnabled = false
-            
-            //if parse database wasn't successfully updated
+                let test = SISignin![columnName]
+                if (test != nil){
+                    
+                    let SIObject = PFObject(className: "SI_Sign_in")
+                    SIObject[columnName] = rowData
+                    SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                        
+                        //if parse database was successfully updated
+                        //(Parse uses UTC time)
+                        if success {
+                            
+                            self.checkIfColumnExists(columnName)
+                            
+                            //Adds latest value to the items array which the 'History' table loads from
+                            self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
+                            self.textField.resignFirstResponder()
+                            
+                            self.textField.text = ""
+                            self.tableView.reloadData()
+                            
+                            self.saveCoreVariables()
+                            
+                            //Implement if you want to start limiting personal data changes, make it a core variable
+                            //self.textFieldPerson.userInteractionEnabled = false
+                            
+                            //if parse database wasn't successfully updated
+                        }
+                        
+                    }
+                    
+                } else {
+                    
+                    self.alert("SI Name", alertMessage: "SI name doesn't exist")
+                    
+                }
             } else {
                 
                 self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
                 
             }
-        
         }
         
     }
     
-    func checkIfColumnExists(columnName: String) -> Bool{
+    func checkIfColumnExists(columnName: String){
         
         let query = PFQuery(className:"SI_Sign_in")
         query.getObjectInBackgroundWithId("LSkiYqNuPO") {
             (SISignin: PFObject?, error: NSError?) -> Void in
             if error == nil && SISignin != nil {
                 //let test = SISignin![columnName]
-                
+                //if (test == nil){
+                    //return false
+                //}
             }
         }
 
