@@ -64,8 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateDatabase(columnName: String,rowData: String, tableRowString: String){
         
         let query = PFQuery(className:"SI_Sign_in")
-        query.getObjectInBackgroundWithId("LSkiYqNuPO") {
-            (SISignin: PFObject?, error: NSError?) -> Void in
+        query.getObjectInBackgroundWithId("LSkiYqNuPO") { (SISignin: PFObject?, error: NSError?) -> Void in
             if error == nil && SISignin != nil {
                 
                 let test = SISignin![columnName]
@@ -90,10 +89,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             
                             self.saveCoreVariables()
                             
-                            //Implement if you want to start limiting personal data changes, make it a core variable
-                            //self.textFieldPerson.userInteractionEnabled = false
-                            
-                            //if parse database wasn't successfully updated
                         }
                         
                     }
