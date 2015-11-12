@@ -28,7 +28,7 @@ Guidelines:
 
 ##CONTRIBUTOR AGREEMENT
 
-[Individual Contributor License Agreement](http://samyachour.github.io/Individual_Contributor_License_Agreement.html)
-[Entity Contributor License Agreement](http://samyachour.github.io/Entity_Contributor_License_Agreement.html)
+- [Individual Contributor License Agreement](http://samyachour.github.io/Individual_Contributor_License_Agreement.html)
+- [Entity Contributor License Agreement](http://samyachour.github.io/Entity_Contributor_License_Agreement.html)
 
 Fill out the agreement and email it to achou100@mail.chapman.edu

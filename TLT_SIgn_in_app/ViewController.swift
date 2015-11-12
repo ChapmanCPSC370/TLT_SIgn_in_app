@@ -61,30 +61,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Updating data in Parse/Table function
     
     //Update the Parse database and Table cells
+    //Note: This function is a mess. It's a mess because the parse documentation on swift is sparse at best. I probably should have went with objective-c but I did not know I would end up using parse. To summarize for any developers reading this, this function updates the parse database. If the SI name inputted does not exist already in the database it alerts the user. If the parse database cannot be connected to through the internet it alerts the user. If those alerts do not come up it edits the database correctly.
     func updateDatabase(columnName: String,rowData: String, tableRowString: String){
         
+        //Get an object (row) from the database to see if the columnName input (SI Name) exists
         let query = PFQuery(className:"SI_Sign_in")
         query.getObjectInBackgroundWithId("LSkiYqNuPO") { (SISignin: PFObject?, error: NSError?) -> Void in
+            
+            //If the parse database was successfully connected to
             if error == nil && SISignin != nil {
                 
+                //make a test object (row) and find out its value at the given columnName (SI Name)
                 let test = SISignin![columnName]
+                
+                //if there is something at that column for our test object (row) then the SI Name already exists in the database and we can go ahead and update it
                 if (test != nil){
                     
+                    //Create an object to input user data in given ColumnName at new row
                     let SIObject = PFObject(className: "SI_Sign_in")
                     SIObject[columnName] = rowData
                     SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                         
-                        //if parse database was successfully updated
+                        //if parse database was successfully connected to again
                         //(Parse uses UTC time)
                         if success {
-                            
-                            self.checkIfColumnExists(columnName)
                             
                             //Adds latest value to the items array which the 'History' table loads from
                             self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
                             self.textField.resignFirstResponder()
                             
+                            //Makes the SI Name input text field blank again for further entries
                             self.textField.text = ""
+                            //Reloads the table based off of global array
                             self.tableView.reloadData()
                             
                             self.saveCoreVariables()
@@ -93,33 +101,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         
                     }
                     
+                //If the test object created gave us nil for it's value at the columnName (SI Name). Basically if there was no SI with that name in our database.
                 } else {
                     
                     self.alert("SI Name", alertMessage: "SI name doesn't exist")
                     
                 }
+            
+            //If the app could not successfully connect to the parse database
             } else {
                 
                 self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
                 
             }
         }
-        
-    }
-    
-    func checkIfColumnExists(columnName: String){
-        
-        let query = PFQuery(className:"SI_Sign_in")
-        query.getObjectInBackgroundWithId("LSkiYqNuPO") {
-            (SISignin: PFObject?, error: NSError?) -> Void in
-            if error == nil && SISignin != nil {
-                //let test = SISignin![columnName]
-                //if (test == nil){
-                    //return false
-                //}
-            }
-        }
-
         
     }
     
@@ -156,13 +151,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: Table View functions
     
+    //Returns the amount of cells in the table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return items.count
         
     }
     
-    //load the table view based off the items array
+    //Toad the table view based off the items array
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
@@ -178,8 +174,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let autoCompleteString = items[indexPath.row]
         let returnString = autoCompleteString.componentsSeparatedByString(" ")
         
+        //Just grab the first two words of the cell which happens to be the SI first+last name
         textField.text = returnString[0] + " " + returnString[1]
         
+        //Deselect selected cell
         tableView.reloadData()
         
     }
