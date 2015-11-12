@@ -71,6 +71,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //(Parse uses UTC time)
             if success {
                 
+                self.checkIfColumnExists(columnName)
+                
                 //Adds latest value to the items array which the 'History' table loads from
                 self.items.insert(tableRowString + " " + self.getDate(), atIndex: 0)
                 self.textField.resignFirstResponder()
@@ -91,6 +93,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         
         }
+        
+    }
+    
+    func checkIfColumnExists(columnName: String) -> Bool{
+        
+        let query = PFQuery(className:"SI_Sign_in")
+        query.getObjectInBackgroundWithId("LSkiYqNuPO") {
+            (SISignin: PFObject?, error: NSError?) -> Void in
+            if error == nil && SISignin != nil {
+                //let test = SISignin![columnName]
+                
+            }
+        }
+
         
     }
     
