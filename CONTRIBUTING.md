@@ -26,7 +26,7 @@ Guidelines:
 - Use whatever button images are provided and match the color scheme. In this case it should be simple white and blue apple default. It is subject to change
 - For Stylistic and Architectural decisions, mimic the styles and patterns in the existing code-base.
 
-##CONTRIBUTOR AGREEMENTS
+##CONTRIBUTOR AGREEMENT
 
 [Individual Contributor License Agreement](http://samyachour.github.io/Individual_Contributor_License_Agreement.html)
 [Entity Contributor License Agreement](http://samyachour.github.io/Entity_Contributor_License_Agreement.html)
