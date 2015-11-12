@@ -6,6 +6,7 @@
 //  Copyright © 2015 Samy Achour. All rights reserved.
 //
 
+//This app uses Parse.com to store SI attendee information
 import Parse
 import UIKit
 
