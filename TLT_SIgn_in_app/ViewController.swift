@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //load the variables that are stored outside of the app
+        //Load the variables that are stored outside of the app
         loadCoreVariables()
         
     }
@@ -42,11 +42,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let siName = textField.text!
         personInfo = textFieldPerson.text!
-                
+        
+        personInfo = verifyPersonInfo(personInfo)
         let columnName = addUnderscores(siName)
         
-        //if the user actually typed something in both text fields
-        if (personInfo != "" && siName != ""){
+        //If the user actually typed something in both text fields AND don't proceed if the SI Name has more than 1 space (see addUnderscores function) AND don't proceed if the personal info is not in the right format
+        if (personInfo != "" && siName != "" && columnName != "" && personInfo != ""){
             
             updateDatabase(columnName, rowData: personInfo, tableRowString: siName)
             
@@ -61,6 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Updating data in Parse/Table function
     
     //Update the Parse database and Table cells
+    //Parse uses UTC time
     //Note: This function is a mess. It's a mess because the parse documentation on swift is sparse at best. I probably should have went with objective-c but I did not know I would end up using parse. To summarize for any developers reading this, this function updates the parse database. If the SI name inputted does not exist already in the database it alerts the user. If the parse database cannot be connected to through the internet it alerts the user. If those alerts do not come up it edits the database correctly.
     func updateDatabase(columnName: String,rowData: String, tableRowString: String){
         
@@ -71,10 +73,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //If the parse database was successfully connected to
             if error == nil && SISignin != nil {
                 
-                //make a test object (row) and find out its value at the given columnName (SI Name)
+                //Make a test object (row) and find out its value at the given columnName (SI Name)
                 let test = SISignin![columnName]
                 
-                //if there is something at that column for our test object (row) then the SI Name already exists in the database and we can go ahead and update it
+                //If there is something at that column for our test object (row) then the SI Name already exists in the database and we can go ahead and update it!
                 if (test != nil){
                     
                     //Create an object to input user data in given ColumnName at new row
@@ -82,8 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     SIObject[columnName] = rowData
                     SIObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                         
-                        //if parse database was successfully connected to again
-                        //(Parse uses UTC time)
+                        //If parse database was successfully connected to again
                         if success {
                             
                             //Adds latest value to the items array which the 'History' table loads from
@@ -111,7 +112,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //If the app could not successfully connect to the parse database
             } else {
                 
-                self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history and therefore could not update database. Please try again.")
+                self.alert("Internet Connection!!!", alertMessage: "Could not add SI session to history because I couldn't connect to the database probably because of your internet connection")
                 
             }
         }
@@ -205,6 +206,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return DateInFormat
         
     }
+    
+    //So we can check the personal info to make sure it is in the right format "FirstName LastName IDNumber"
+    func verifyPersonInfo(inputString: String) -> String{
+        
+        var returnString = ""
+        
+        let newItemArr = inputString.componentsSeparatedByString(" ")
+        
+        //Check if there are three words, the first two are strings, and the last one is an integer
+        if newItemArr.count == 3 && Int(newItemArr[0]) == nil && Int(newItemArr[1]) == nil && Int(newItemArr[2]) != nil {
+            
+            returnString = inputString
+            
+        } else {
+            
+            alert("Personal Pnfo", alertMessage: "Your personal info should be in the following format: \"FirstName LastName IDNumber\"")
+            
+        }
+        
+        return returnString
+        
+    }
 
     //So we can convert "Bob Smith" to "bob_smith"
     func addUnderscores(var inputString: String) -> String{
@@ -221,7 +244,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
                 
             inputString = newItemArr.joinWithSeparator("_")
-                
             returnString = inputString.lowercaseString
                 
         }
