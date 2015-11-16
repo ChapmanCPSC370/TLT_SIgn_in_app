@@ -45,6 +45,8 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](http://imgur.com/289tABu)
 
+The android version is just an app with a webview of [this](http://androidsisignin.parseapp.com) webpage
+
 ##License
 
 See the [LICENSE](License.md) file for license rights and limitations (MIT).
