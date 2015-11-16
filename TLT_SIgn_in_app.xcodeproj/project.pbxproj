@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2E6A0BD81BF9935200AD2E87 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A0BD71BF9935200AD2E87 /* README.md */; };
+		2E6A0BE01BF996C100AD2E87 /* androidSignin.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E6A0BDD1BF996C100AD2E87 /* androidSignin.html */; };
+		2E6A0BE11BF996C100AD2E87 /* CONTRIBUTING.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A0BDE1BF996C100AD2E87 /* CONTRIBUTING.md */; };
+		2E6A0BE21BF996C100AD2E87 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A0BDF1BF996C100AD2E87 /* LICENSE.md */; };
 		2E85865E1BDC771000CB4374 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8586571BDC771000CB4374 /* Bolts.framework */; };
 		2E85865F1BDC771000CB4374 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8586581BDC771000CB4374 /* Parse.framework */; };
 		2E8586601BDC771000CB4374 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8586591BDC771000CB4374 /* ParseCrashReporting.framework */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		2E6A0BD71BF9935200AD2E87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2E6A0BDD1BF996C100AD2E87 /* androidSignin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = androidSignin.html; sourceTree = "<group>"; };
+		2E6A0BDE1BF996C100AD2E87 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		2E6A0BDF1BF996C100AD2E87 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		2E8586571BDC771000CB4374 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2E8586581BDC771000CB4374 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2E8586591BDC771000CB4374 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -112,6 +118,10 @@
 		2E9C0D0D1BF534CA00FE29BA /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				2E6A0BDD1BF996C100AD2E87 /* androidSignin.html */,
+				2E6A0BDE1BF996C100AD2E87 /* CONTRIBUTING.md */,
+				2E6A0BDF1BF996C100AD2E87 /* LICENSE.md */,
+				2E6A0BD71BF9935200AD2E87 /* README.md */,
 				2E9C0CFD1BF5348300FE29BA /* .gitignore */,
 			);
 			name = Github;
@@ -120,7 +130,6 @@
 		2EB94A6A1BD32801006C2432 = {
 			isa = PBXGroup;
 			children = (
-				2E6A0BD71BF9935200AD2E87 /* README.md */,
 				2E9C0D051BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt */,
 				2E9C0D021BF534BC00FE29BA /* Info_For_TLT.txt */,
 				2E9C0D0D1BF534CA00FE29BA /* Github */,
@@ -225,6 +234,7 @@
 			files = (
 				2EB94A811BD32801006C2432 /* LaunchScreen.storyboard in Resources */,
 				2EB94A7E1BD32801006C2432 /* Assets.xcassets in Resources */,
+				2E6A0BE01BF996C100AD2E87 /* androidSignin.html in Resources */,
 				2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,8 +246,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6A0BE21BF996C100AD2E87 /* LICENSE.md in Sources */,
 				2E6A0BD81BF9935200AD2E87 /* README.md in Sources */,
 				2EB94A791BD32801006C2432 /* ViewController.swift in Sources */,
+				2E6A0BE11BF996C100AD2E87 /* CONTRIBUTING.md in Sources */,
 				2EB94A771BD32801006C2432 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

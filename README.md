@@ -43,7 +43,7 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 1. If first time user input firstname, lastname, and ID number. Then input current SI firstname and lastname, .
 
-2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](Design_overview.png)
+2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](http://imgur.com/289tABu)
 
 ##License
 
