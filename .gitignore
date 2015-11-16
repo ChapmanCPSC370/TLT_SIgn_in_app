@@ -26,7 +26,6 @@ xcuserdata
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
-*.txt
 
 # CocoaPods
 #
