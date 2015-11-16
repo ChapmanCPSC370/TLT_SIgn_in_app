@@ -14,14 +14,6 @@
 		2E8586621BDC771000CB4374 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85865B1BDC771000CB4374 /* ParseFacebookUtilsV4.framework */; };
 		2E8586631BDC771000CB4374 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85865C1BDC771000CB4374 /* ParseTwitterUtils.framework */; };
 		2E8586641BDC771000CB4374 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85865D1BDC771000CB4374 /* ParseUI.framework */; };
-		2E9C0CFE1BF5348300FE29BA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2E9C0CFD1BF5348300FE29BA /* .gitignore */; };
-		2E9C0D061BF534BC00FE29BA /* androidSignIn.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E9C0CFF1BF534BC00FE29BA /* androidSignIn.html */; };
-		2E9C0D071BF534BC00FE29BA /* CONTRIBUTING.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C0D001BF534BC00FE29BA /* CONTRIBUTING.md */; };
-		2E9C0D081BF534BC00FE29BA /* Design_overview.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9C0D011BF534BC00FE29BA /* Design_overview.png */; };
-		2E9C0D091BF534BC00FE29BA /* Info_For_TLT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E9C0D021BF534BC00FE29BA /* Info_For_TLT.txt */; };
-		2E9C0D0A1BF534BC00FE29BA /* License.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C0D031BF534BC00FE29BA /* License.md */; };
-		2E9C0D0B1BF534BC00FE29BA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C0D041BF534BC00FE29BA /* README.md */; };
-		2E9C0D0C1BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E9C0D051BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt */; };
 		2EB94A771BD32801006C2432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB94A761BD32801006C2432 /* AppDelegate.swift */; };
 		2EB94A791BD32801006C2432 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB94A781BD32801006C2432 /* ViewController.swift */; };
 		2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB94A7A1BD32801006C2432 /* Main.storyboard */; };
@@ -238,14 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9C0CFE1BF5348300FE29BA /* .gitignore in Resources */,
-				2E9C0D061BF534BC00FE29BA /* androidSignIn.html in Resources */,
-				2E9C0D0C1BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt in Resources */,
 				2EB94A811BD32801006C2432 /* LaunchScreen.storyboard in Resources */,
 				2EB94A7E1BD32801006C2432 /* Assets.xcassets in Resources */,
-				2E9C0D081BF534BC00FE29BA /* Design_overview.png in Resources */,
 				2EB94A7C1BD32801006C2432 /* Main.storyboard in Resources */,
-				2E9C0D091BF534BC00FE29BA /* Info_For_TLT.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9C0D0A1BF534BC00FE29BA /* License.md in Sources */,
 				2EB94A791BD32801006C2432 /* ViewController.swift in Sources */,
-				2E9C0D0B1BF534BC00FE29BA /* README.md in Sources */,
 				2EB94A771BD32801006C2432 /* AppDelegate.swift in Sources */,
-				2E9C0D071BF534BC00FE29BA /* CONTRIBUTING.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
