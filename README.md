@@ -49,7 +49,7 @@ The android version is just an app with a webview of [this](http://androidsisign
 
 ##License
 
-See the [LICENSE](License.md) file for license rights and limitations (MIT).
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
 ## Getting help
 
