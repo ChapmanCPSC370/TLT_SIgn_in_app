@@ -40,12 +40,7 @@
 		2E85865C1BDC771000CB4374 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		2E85865D1BDC771000CB4374 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		2E9C0CFD1BF5348300FE29BA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2E9C0CFF1BF534BC00FE29BA /* androidSignIn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = androidSignIn.html; path = ../androidSignIn.html; sourceTree = "<group>"; };
-		2E9C0D001BF534BC00FE29BA /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
-		2E9C0D011BF534BC00FE29BA /* Design_overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Design_overview.png; path = ../Design_overview.png; sourceTree = "<group>"; };
 		2E9C0D021BF534BC00FE29BA /* Info_For_TLT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Info_For_TLT.txt; path = ../Info_For_TLT.txt; sourceTree = "<group>"; };
-		2E9C0D031BF534BC00FE29BA /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = License.md; path = ../License.md; sourceTree = "<group>"; };
-		2E9C0D041BF534BC00FE29BA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2E9C0D051BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "TLT_SIgn_in_app notes.txt"; path = "../TLT_SIgn_in_app notes.txt"; sourceTree = "<group>"; };
 		2EB94A731BD32801006C2432 /* TLT_SIgn_in_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLT_SIgn_in_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB94A761BD32801006C2432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,11 +110,6 @@
 		2E9C0D0D1BF534CA00FE29BA /* Github */ = {
 			isa = PBXGroup;
 			children = (
-				2E9C0CFF1BF534BC00FE29BA /* androidSignIn.html */,
-				2E9C0D001BF534BC00FE29BA /* CONTRIBUTING.md */,
-				2E9C0D011BF534BC00FE29BA /* Design_overview.png */,
-				2E9C0D031BF534BC00FE29BA /* License.md */,
-				2E9C0D041BF534BC00FE29BA /* README.md */,
 				2E9C0CFD1BF5348300FE29BA /* .gitignore */,
 			);
 			name = Github;
