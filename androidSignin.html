@@ -21,7 +21,7 @@ parse deploy
 <head>
     
     <title>Android SI Sign in</title>
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
     
 </head>
 
@@ -54,7 +54,7 @@ parse deploy
             var personInfoArr = personInfo.split(" ");
             var SIInfoArr = SIInfo.split(" ");
     
-            if (personInfoArr.length != 3 || SIInfoArr.length != 2 || isNaN(personInfoArr[2]) == true) {
+            if (personInfoArr.length != 3 || SIInfoArr.length != 2 || isNaN(personInfoArr[2]) == true || personInfoArr[2] == "") {
                 alert("Your personal info should be in the following format: \"FirstName LastName IDNumber\" AND the SI name should only have 1 space.");
                 return false;
             }
@@ -77,10 +77,10 @@ parse deploy
                             testObject.save(SIInfo, personInfo).then(function(object) {
                                                                alert("Successfully submitted to database");
                                                                });
-                      
-                        } else {
+                      } else {
                       
                             alert("SI name does not exist in database");
+                            return false;
                       
                         }
                       },
@@ -93,9 +93,8 @@ parse deploy
                       
                       }
                       });
-            
-            return true;
-            
+                      
+                      
         }
     
     </script>
