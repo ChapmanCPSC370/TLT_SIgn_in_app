@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let columnName = addUnderscores(siName)
         
         //If the user actually typed something in both text fields AND don't proceed if the SI Name has more than 1 space (see addUnderscores function) AND don't proceed if the personal info is not in the right format
-        if (personInfo != "" && siName != "" && columnName != "" && personInfo != ""){
+        if (personInfo != "" && siName != "" && columnName != ""){
             
             updateDatabase(columnName, rowData: personInfo, tableRowString: siName)
             

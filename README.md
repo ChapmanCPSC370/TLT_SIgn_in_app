@@ -45,7 +45,19 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](http://imgur.com/289tABu)
 
-The android version is just an app with a webview of [this](http://androidsisignin.parseapp.com) webpage
+The [android version](https://play.google.com/store/apps/details?id=samyachour.tlt_sign_in_app_android) is just an app with a webview of [this](http://androidsisignin.parseapp.com) webpage
+
+###Checks
+
+The online android web view form and iOS app will make sure:
+
+1. The user typed something in the text fields
+
+2. What the user typed is in the correct format
+
+3. The SI name that the user typed in exists in the database
+
+4. The user has internet connection and can successfully update the parse database
 
 ##License
 

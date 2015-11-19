@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<!-- androidsisignin.parseapp.com D2c3KZXcavTIwi260cEcJn20dc5nFrtwjWHkPgGH-->
-
-<!-- for command line tools cat /Users/samy/Documents/Programming_Stuff/TLT_SIgn_in_app/TLT_SIgn_in_app/androidSignIn.html > public/index.html-->
+<!-- siandroidsignin.parseapp.com -->
 
 <!--
  Next, you might want to deploy this code with:
  
-	cd /Users/samy/my_parse_app
-	parse deploy
+cat /Users/samy/Documents/Programming_Stuff/TLT_SIgn_in_app/TLT_SIgn_in_app/androidSignIn.html > public/index.html
+parse deploy
  
  Once deployed you can test that it works by running:
  curl -X POST \
@@ -33,9 +31,9 @@
     
     <form name="data" action="submitscript.php" target="dummyframe" onsubmit="return submitData()" method="post">
         
-        YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo">
-        SIFirstname SILastname: <input type="text" name="SIInfo">
-        <input type="submit" value="Submit">
+        <p>YourFirstName YourLastName YourIDNumber: <input type="text" name="personInfo"></p>
+        <p>SIFirstname SILastname: <input type="text" name="SIInfo"></p>
+        <p><input type="submit" value="Submit"></p>
             
     </form>
     
@@ -48,19 +46,55 @@
             var personInfo = document.forms["data"]["personInfo"].value;
             var SIInfo = document.forms["data"]["SIInfo"].value;
             
-            SIInfo = String(SIInfo).replace(" ", "_");
-            SIInfo = String(SIInfo).toLowerCase();
-            
             if (personInfo == null || personInfo == "" || SIInfo == null || SIInfo == "") {
-                alert("Name must be filled out");
+                alert("Text must be filled out");
                 return false;
             }
             
-            var TestObject = Parse.Object.extend("SI_Sign_in");
-            var testObject = new TestObject();
-            testObject.save(SIInfo, personInfo).then(function(object) {
-                                               alert("Successfully submitted to database");
-                                               });
+            var personInfoArr = personInfo.split(" ");
+            var SIInfoArr = SIInfo.split(" ");
+    
+            if (personInfoArr.length != 3 || SIInfoArr.length != 2 || isNaN(personInfoArr[2]) == true) {
+                alert("Your personal info should be in the following format: \"FirstName LastName IDNumber\" AND the SI name should only have 1 space.");
+                return false;
+            }
+            
+            SIInfo = String(SIInfo).replace(" ", "_");
+            SIInfo = String(SIInfo).toLowerCase();
+            
+            var SISignin = Parse.Object.extend("SI_Sign_in");
+            var query = new Parse.Query(SISignin);
+            query.get("LSkiYqNuPO", {
+                      
+                      // The object was retrieved successfully.
+                      success: function(test) {
+                      
+                        //If there is something at that column for our test row
+                        if (test.get(SIInfo) != null) {
+                      
+                            var TestObject = Parse.Object.extend("SI_Sign_in");
+                            var testObject = new TestObject();
+                            testObject.save(SIInfo, personInfo).then(function(object) {
+                                                               alert("Successfully submitted to database");
+                                                               });
+                      
+                        } else {
+                      
+                            alert("SI name does not exist in database");
+                      
+                        }
+                      },
+                      
+                      // The object was not retrieved successfully.
+                      // error is a Parse.Error with an error code and message.
+                      error: function(object, error) {
+                      
+                        alert("Could not connect to Parse Database. Could be due to internet connection")
+                      
+                      }
+                      });
+            
+            return true;
             
         }
     
