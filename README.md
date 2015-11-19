@@ -47,7 +47,7 @@ If you want to edit specific files (ie Viewcontroller.swift)
 
 The [android version](https://play.google.com/store/apps/details?id=samyachour.tlt_sign_in_app_android) is just an app with a webview of [this](http://androidsisignin.parseapp.com) webpage
 
-###Checks
+###### Security Checks
 
 The online android web view form and iOS app will make sure:
 
