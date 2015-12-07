@@ -21,19 +21,17 @@ If you want to completely fork the project:
 
 3. Open TLT_SIgn_in_app.xcodeproj with Xcode.
 
-4. [Install Parse](https://www.parse.com/apps/quickstart#parse_data/mobile/ios/swift/existing)
+4. [Install Parse](https://www.parse.com/apps/quickstart#parse_data/mobile/ios/swift/existing) (We are using parse 1.10.0)
 
 ###Usage
 
-1. If first time user input firstname, lastname, and ID number. Then input current SI firstname and lastname, .
+1. If first time user input firstname, lastname, and ID number. Then input current SI firstname and lastname.
 
-2. Click submit. If SI data moves to tableview then the process is complete. If not reinput data. Tableview and user info will save to core data. [Design overview.](http://imgur.com/289tABu)
+2. Click submit. If SI data moves to tableview then the process is complete. If not, read/dismiss the error popup and reinput data. Tableview and user info will save to core data. [Design overview.](http://imgur.com/bL9h9jZ)
 
 The [android version](https://play.google.com/store/apps/details?id=samyachour.tlt_sign_in_app_android) is just an app with a webview of [this](http://siandroidsignin.parseapp.com) webpage
 
-###### Security Checks
-
-The online android web view form and iOS app will make sure:
+**The online android web view form and iOS app will make sure**:
 
 1. The user typed something in the text fields
 
