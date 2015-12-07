@@ -1,5 +1,7 @@
 #TLT SIgn-in app
 
+[![Join the chat at https://gitter.im/ChapmanCPSC370/TLT_SIgn_in_app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ChapmanCPSC370/TLT_SIgn_in_app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Description**:  An iOS app that allows students to sign into SI sessions with their smartphone.
 
 - **Technology stack**: This iOS version of the app is done all in Xcode which integrates with github. The code is primarily in swift. This is a standalone project.
