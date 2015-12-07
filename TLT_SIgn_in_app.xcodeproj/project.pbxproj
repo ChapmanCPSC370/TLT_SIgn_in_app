@@ -93,6 +93,7 @@
 		2E8586551BDC6A8F00CB4374 /* Frameworks/Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2E9FEB5A1C0FF3DE00BB0E4D /* parse-library-1.10.0 */,
 				2EF55A431BD9D4E400C9FA29 /* libsqlite3.tbd */,
 				2EF55A411BD9D4D300C9FA29 /* libz.tbd */,
 				2EF55A3F1BD9D4BE00C9FA29 /* SystemConfiguration.framework */,
@@ -137,7 +138,6 @@
 			children = (
 				2E9C0D051BF534BC00FE29BA /* TLT_SIgn_in_app notes.txt */,
 				2E9C0D021BF534BC00FE29BA /* Info_For_TLT.txt */,
-				2E9FEB5A1C0FF3DE00BB0E4D /* parse-library-1.10.0 */,
 				2E9C0D0D1BF534CA00FE29BA /* Github */,
 				2E8586551BDC6A8F00CB4374 /* Frameworks/Libraries */,
 				2EB94A751BD32801006C2432 /* TLT_SIgn_in_app */,
@@ -353,9 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/parse-library-1.9.1/",
-					"$(PROJECT_DIR)/parse-library-1.9.1",
-					"$(PROJECT_DIR)/parse-library-1.10.0",
+					"$(PROJECT_DIR)/parse-library-1.10.0/**",
 				);
 				INFOPLIST_FILE = TLT_SIgn_in_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,9 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/parse-library-1.9.1/",
-					"$(PROJECT_DIR)/parse-library-1.9.1",
-					"$(PROJECT_DIR)/parse-library-1.10.0",
+					"$(PROJECT_DIR)/parse-library-1.10.0/**",
 				);
 				INFOPLIST_FILE = TLT_SIgn_in_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

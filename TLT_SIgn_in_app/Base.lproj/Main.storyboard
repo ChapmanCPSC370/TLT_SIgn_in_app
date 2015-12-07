@@ -9,7 +9,7 @@
         <!--S.I. Sign in-->
         <scene sceneID="H0x-ij-too">
             <objects>
-                <viewController title="S.I. Sign in" id="FXx-ER-ZdC" customClass="ViewController" customModule="TLT_SIgn_in_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="S.I. Sign in" id="FXx-ER-ZdC" customClass="ViewController" customModule="SI_Sign_in" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l4R-ib-7e6"/>
                         <viewControllerLayoutGuide type="bottom" id="Xgs-o8-3mY"/>
