@@ -7,6 +7,10 @@
 - **Technology stack**: This iOS version of the app is done all in Xcode which integrates with github. The code is primarily in swift. This is a standalone project.
 - **Status**:  Currently working on version 1.0 (beta).
 
+##Screenshot
+
+![ScreenShot](https://raw.githubusercontent.com/ChapmanCPSC370/TLT_SIgn_in_app/master/images/SS1.png)
+
 ## Dependencies
 
 Needs [Xcode 7](https://developer.apple.com/xcode/download/) or higher and Swift 2 or higher. To install Xcode you need an Intel-based Mac running Mac OS X Snow Leopard or later. [Parse](https://www.parse.com) is needed for the backend.
