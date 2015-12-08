@@ -23,8 +23,6 @@ If you want to completely fork the project:
 
 3. Open TLT_SIgn_in_app.xcodeproj with Xcode.
 
-4. [Install Parse](https://www.parse.com/apps/quickstart#parse_data/mobile/ios/swift/existing) (We are using parse 1.10.0)
-
 ###Usage
 
 1. If first time user input firstname, lastname, and ID number. Then input current SI firstname and lastname.
@@ -43,12 +41,14 @@ The [android version](https://play.google.com/store/apps/details?id=samyachour.t
 
 4. The user has internet connection and can successfully update the parse database
 
-### Getting help
+## Getting help
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
+Also, check out [Gitter](https://gitter.im/ChapmanCPSC370/TLT_SIgn_in_app) to communicate with other contributors and to find support.
+
 Instructions on how to [CONTRIBUTE](CONTRIBUTING.md).
 
-###License
+##License
 
 See the [MIT LICENSE](LICENSE.md) file for license rights and limitations.
